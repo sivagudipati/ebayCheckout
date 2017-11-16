@@ -17,20 +17,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageProperties {
 	
-	static WebDriver driver = null;
-	static WebDriverWait wait = null;
+	 WebDriver driver = null;
+	 WebDriverWait wait = null;
 	ResourceBundle config = ResourceBundle.getBundle("configuration");
 	
-	public PageProperties() {
+	public PageProperties(String browser) {
 
 		if (driver == null){
 			
 			String URL = config.getString("URL");
 			String waittime = config.getString("waittime");
-			String browser = config.getString("browser");
+			//String browser = config.getString("browser");
 			if(browser.equalsIgnoreCase("chrome"))
 			{
-			driver = new ChromeDriver();	
+				System.setProperty("webdriver.chrome.driver", config.getString("chromeBrowserdriver"));	
+				driver = new ChromeDriver();	
 			}
 			else if (browser.equalsIgnoreCase("firefox"))
 			{

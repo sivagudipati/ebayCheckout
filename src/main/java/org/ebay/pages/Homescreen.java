@@ -8,6 +8,11 @@ import org.openqa.selenium.JavascriptExecutor;
 public class Homescreen extends PageProperties
 
 {
+
+	public Homescreen(String browser) {
+		super(browser);
+	}
+
 	ResourceBundle config = ResourceBundle.getBundle("Configuration");
 	
 	public void searchItem(){
